@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Naufal! 🎉</title><style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        background: linear-gradient(
+            135deg,
+            #20B2AA 0%,
+            #AEC6CF 50%,
+            #4A5568 100%
+        );
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        overflow-x: hidden;
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 24px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        max-width: 500px;
+        width: 100%;
+        animation: muncul 1.5s ease-out;
+        position: relative;
+        z-index: 2;
+    }
+
+    @keyframes muncul {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        color: #20B2AA;
+        margin-bottom: 15px;
+    }
+
+    .nama {
+        font-size: 1.7rem;
+        color: #4A5568;
+        font-weight: bold;
+        margin-bottom: 25px;
+    }
+
+    .kue {
+        font-size: 4rem;
+        margin: 20px 0;
+        animation: naikTurun 2s infinite ease-in-out;
+    }
+
+    @keyframes naikTurun {
+        0%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+
+    .pesan {
+        font-size: 1.1rem;
+        color: #444;
+        line-height: 1.8;
+        margin-bottom: 25px;
+    }
+
+    .harapan {
+        background: linear-gradient(
+            135deg,
+            #E8F4F8,
+            #D4E6ED
+        );
+        padding: 20px;
+        border-radius: 16px;
+        border-left: 5px solid #20B2AA;
+        margin-bottom: 20px;
+        line-height: 1.6;
+        color: #444;
+    }
+
+    .confetti {
+        position: fixed;
+        top: -15px;
+        width: 10px;
+        height: 10px;
+        opacity: 0;
+        animation: jatuh 5s ease-in-out forwards;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    @keyframes jatuh {
+        0% {
+            transform: translateY(-10px) rotate(0deg);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(100vh) rotate(720deg);
+            opacity: 0;
+        }
+    }
+
+    .tombol {
+        background: linear-gradient(
+            135deg,
+            #20B2AA,
+            #4A5568
+        );
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-size: 1rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .tombol:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .tombol:active {
+        transform: scale(0.97);
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 30px 20px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        .nama {
+            font-size: 1.4rem;
+        }
+
+        .pesan {
+            font-size: 1rem;
+        }
+
+        .harapan {
+            font-size: 0.95rem;
+        }
+    }
+</style>
+
+</head><body><div class="container">
+    <h1>🎊 Selamat Ulang Tahun! 🎊</h1>
+
+    <div class="nama">
+        Muhammad Naufal Zayan
+    </div>
+
+    <div class="kue">
+        🎂
+    </div>
+
+    <div class="pesan">
+        Selamat bertambah usia! 🥳<br>
+        Semoga hari ini seindah senyummu ✨
+    </div>
+
+    <div class="harapan">
+        <strong>Doa & Harapan 🕊️</strong><br><br>
+
+        Semoga selalu sehat, bahagia, sukses,
+        dan semua impianmu segera terwujud.
+        Tetaplah menjadi orang yang hebat dan
+        dicintai banyak orang! 💖
+
+        <br><br>
+
+        Tetap ceria ya, jangan jadi orang yang
+        dingin atau tertutup! Semangat terus! 💚
+    </div>
+
+    <button class="tombol" onclick="nyalakanLilin()">
+        🎈 Tekan Aku
+    </button>
+
+    <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
+        Dengan penuh kasih sayang 💌
+    </p>
+</div>
+
+<script>
+    // Warna confetti
+    const warna = [
+        '#20B2AA',
+        '#AEC6CF',
+        '#4A5568',
+        '#7FB3D5',
+        '#5F9EA0'
+    ];
+
+    // Membuat satu confetti
+    function buatConfetti() {
+        const el = document.createElement('div');
+
+        el.classList.add('confetti');
+
+        el.style.left = Math.random() * 100 + 'vw';
+
+        el.style.backgroundColor =
+            warna[Math.floor(Math.random() * warna.length)];
+
+        el.style.animationDelay =
+            Math.random() * 2 + 's';
+
+        const ukuran = Math.random() * 8 + 5;
+
+        el.style.width = ukuran + 'px';
+        el.style.height = ukuran + 'px';
+
+        document.body.appendChild(el);
+
+        setTimeout(() => {
+            el.remove();
+        }, 7000);
+    }
+
+    // Confetti otomatis
+    setInterval(buatConfetti, 300);
+
+    // Tombol ulang tahun
+    function nyalakanLilin() {
+        alert(
+            '🎇 1/Oct/2026 SELAMAT ULANG TAHUN, NAUFAL! 🎇\n\n' +
+            'Sehat selalu, panjang umur, bahagia selalu!\n' +
+            'Tetap ceria, jangan jadi orang yang dingin ya 😘\n' +
+            'Dan jangan jadi dark sistem yak 💜'
+        );
+
+        // Ledakan confetti
+        for (let i = 0; i < 50; i++) {
+            setTimeout(() => {
+                buatConfetti();
+            }, i * 50);
+        }
+    }
+</script>
+
+</body>
+</html>
